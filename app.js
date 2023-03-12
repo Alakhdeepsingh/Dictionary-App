@@ -1,6 +1,6 @@
 let input = document.querySelector('#input');
 let searchBtn = document.querySelector('#search');
-let apiKey = '<YOUR-API-KEY>';
+let apiKey = '74683dd-93ff-4ddd-a27a-c96916d9019e';
 let notFound = document.querySelector('.not__found');
 let defBox = document.querySelector('.def');
 let audioBox = document.querySelector('.audio');
@@ -29,8 +29,17 @@ searchBtn.addEventListener('click', function(e){
 async function getData(word) {
     loading.style.display = 'block';
     // Ajax call 
-    const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${apiKey}`);
+    const response = await fetch(`https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=c74683dd-93ff-4ddd-a27a-c96916d9019e`);
+    console.log(response);
+    //const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${apiKey}`);
+
+    //https://www.dictionaryapi.com/api/v3/references/learners/json/apple?key=your-api-key
+
+    // https://www.dictionaryapi.com/api/v3/references/learners/json/apple?key=your-api-key
+
+    
     const data = await response.json();
+    console.log(data);
     // if empty result 
     if (!data.length) {
         loading.style.display = 'none';
